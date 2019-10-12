@@ -14,6 +14,10 @@ Page {
         id: newStationDrawer
     }
 
+    DBM {
+        id: dbm
+    }
+
     ItemButton {
         id: addStationBtn
         visible: (!newStationDrawer.opened)

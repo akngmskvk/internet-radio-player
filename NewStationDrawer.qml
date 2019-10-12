@@ -20,6 +20,14 @@ Drawer {
         mainPage.focus = true
     }
 
+    property var station: {
+        'index': -1,
+        'id': -1,
+        'name': -1,
+        'url': -1,
+        'image': -1
+      }
+
     ItemButton {
         id: closeDrawer
         x: 20
@@ -102,6 +110,8 @@ Drawer {
         height: 60
         textSize: 25
         text: "Add Station"
+        onClicked: {
+        }
     }
 
 

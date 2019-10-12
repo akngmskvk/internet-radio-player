@@ -24,7 +24,6 @@ Item {
         radius: 15
         border.width: 1
         border.color: "#3d3d3d"
-
     }
 
     Text {
