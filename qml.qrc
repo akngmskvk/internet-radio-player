@@ -4,5 +4,6 @@
         <file>MainPage.qml</file>
         <file>resources/ir-background.jpg</file>
         <file>components/ItemButton.qml</file>
+        <file>NewStationDrawer.qml</file>
     </qresource>
 </RCC>

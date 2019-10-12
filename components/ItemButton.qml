@@ -38,6 +38,7 @@ Item {
         verticalAlignment: Text.AlignVCenter
         color: itemButton.isReleased ? passiveTextColor : activeTextColor
         font.pixelSize: itemButton.textSize
+        font.letterSpacing: 2
 
         MouseArea {
             id: itemButtonMouseArea
