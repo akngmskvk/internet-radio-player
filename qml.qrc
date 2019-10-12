@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>MainPage.qml</file>
         <file>resources/ir-background.jpg</file>
+        <file>components/ItemButton.qml</file>
     </qresource>
 </RCC>
