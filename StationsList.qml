@@ -104,6 +104,7 @@ Item {
                 {
                     radioPlayer.playStation(index)
                     stationsListView.playingIndex = index
+                    newStationDrawer.station = dbm.getStationFromLM(index)
                 }
                 stationsListView.currentIndex = index
             }
@@ -161,6 +162,13 @@ Item {
                     height: 60
                     textSize: 25
                     text: "Edit"
+                    onClicked: {
+                        newStationDrawer.station = dbm.getStationFromLM(index)
+                        newStationDrawer.copyStationInfosToTextFields()
+                        newStationDrawer.isEdit = true
+                        newStationDrawer.open()
+                        stationItem.isPressAndHold = false
+                    }
                 }
                 ItemButton {
                     id: deleteBtn
@@ -168,30 +176,12 @@ Item {
                     height: 60
                     textSize: 25
                     text: "Remove"
+                    onClicked: {
+                        dbm.removeStation(dbm.getStationFromLM(index))
+                        stationItem.isPressAndHold = false
+                    }
                 }
             }
         }
     }
-
-//    Row {
-//        id: editButtons
-//        anchors.horizontalCenter: parent.horizontalCenter
-//        anchors.bottom: parent.bottom
-//        spacing: 50
-//        ItemButton {
-//            id: editBtn
-//            width: 300
-//            height: 60
-//            textSize: 25
-//            text: "Edit Station"
-//        }
-
-//        ItemButton {
-//            id: deleteBtn
-//            width: 300
-//            height: 60
-//            textSize: 25
-//            text: "Remove Station"
-//        }
-//    }
 }

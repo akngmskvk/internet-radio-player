@@ -9,6 +9,7 @@ Audio {
     }
     onError: {
         console.log("Radio Playback Error = " + errorString)
+        radioPlayer.stop()
     }
 
     property var stationData

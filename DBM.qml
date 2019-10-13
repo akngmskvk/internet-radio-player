@@ -58,14 +58,14 @@ Item {
 
     function updateStationInLM(station)
     {
-        var index = findIndexInLMByStationID(station.id)
-        stationsListModel.set(index, station)
+//        var index = findIndexInLMByStationID(station.id)
+        stationsListModel.set(station.index, station)
     }
 
     function removeStationFromLM(station)
     {
-        var index = findIndexInLMByStationID(station.id)
-        stationsListModel.remove(index)
+//        var index = findIndexInLMByStationID(station.id)
+        stationsListModel.remove(station.index)
     }
 
     function getStationFromLM(listIndex)

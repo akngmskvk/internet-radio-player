@@ -14,6 +14,12 @@ Page {
         id: radioPlayer
     }
 
+    StationInfo {
+        id: stationInfo
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 75
+    }
+
     NewStationDrawer {
         id: newStationDrawer
     }
@@ -25,7 +31,8 @@ Page {
     StationsList {
         id: stationsList
         x: 30
-        anchors.verticalCenter: parent.verticalCenter
+//        anchors.verticalCenter: parent.verticalCenter
+        y: 300
     }
 
     ItemButton {

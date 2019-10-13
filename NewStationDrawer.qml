@@ -40,6 +40,7 @@ Drawer {
         height: 50
         onClicked: {
             newStationDrawer.close()
+            clearTextFields()
         }
     }
 
@@ -115,6 +116,25 @@ Drawer {
 
     ItemButton {
         id: addButton
+        visible: !isEdit
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 150
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: 200
+        height: 60
+        textSize: 25
+        text: "Add Station"
+        onClicked: {
+            copyTextFieldsToStationObject()
+            dbm.insertStation(station)
+            clearTextFields()
+            newStationDrawer.close()
+        }
+    }
+
+    ItemButton {
+        id: saveButton
+        visible: isEdit
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 150
         anchors.horizontalCenter: parent.horizontalCenter
@@ -123,13 +143,30 @@ Drawer {
         textSize: 25
         text: "Save"
         onClicked: {
-            station.name = nameField.text
-            station.url = streamUrlField.text
-            dbm.insertStation(station)
+            copyTextFieldsToStationObject()
+            dbm.updateStation(station)
+            clearTextFields()
+            newStationDrawer.close()
+            isEdit = false
         }
     }
+    function copyTextFieldsToStationObject()
+    {
+        station.name = nameField.text
+        station.url = streamUrlField.text
+    }
 
+    function copyStationInfosToTextFields()
+    {
+        nameField.text = station.name;
+        streamUrlField.text = station.url
+    }
 
-
+    function clearTextFields()
+    {
+        nameField.clear()
+        streamUrlField.clear()
+        nameField.focus = true
+    }
 
 }

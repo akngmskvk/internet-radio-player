@@ -11,5 +11,6 @@
         <file>resources/play-icon.png</file>
         <file>RadioPlayer.qml</file>
         <file>resources/new-station.png</file>
+        <file>StationInfo.qml</file>
     </qresource>
 </RCC>
