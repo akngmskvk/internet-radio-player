@@ -20,6 +20,8 @@ Drawer {
         mainPage.focus = true
     }
 
+    property bool isEdit: false
+
     property var station: {
         'index': -1,
         'id': -1,
@@ -41,7 +43,17 @@ Drawer {
         }
     }
 
+    Image {
+        id: newStationImg
+        width: 220
+        height: 220
+        source: resourcePath + "new-station.png"
+        anchors.horizontalCenter: textColumn.horizontalCenter
+        y: 100
+    }
+
     Column {
+        id: textColumn
         anchors.centerIn: parent
         spacing: 50
         Column {
@@ -109,10 +121,15 @@ Drawer {
         width: 200
         height: 60
         textSize: 25
-        text: "Add Station"
+        text: "Save"
         onClicked: {
+            station.name = nameField.text
+            station.url = streamUrlField.text
+            dbm.insertStation(station)
         }
     }
+
+
 
 
 }

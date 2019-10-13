@@ -10,12 +10,22 @@ Page {
         source: resourcePath + "ir-background.jpg"
     }
 
+    RadioPlayer {
+        id: radioPlayer
+    }
+
     NewStationDrawer {
         id: newStationDrawer
     }
 
     DBM {
         id: dbm
+    }
+
+    StationsList {
+        id: stationsList
+        x: 30
+        anchors.verticalCenter: parent.verticalCenter
     }
 
     ItemButton {

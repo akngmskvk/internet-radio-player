@@ -15,8 +15,9 @@ Item {
     /*** General Usage Begin ***/
     function insertStation(station)
     {
-        insertStationToLM(station);
         insertStationToDB(station);
+        var newStation = getLatestAddedStationFromDB()
+        insertStationToLM(newStation);
     }
 
     function updateStation(station)
@@ -210,6 +211,18 @@ Item {
                 }
             }
         );
+    }
+
+    function getLatestAddedStationFromDB() {
+        var stationData;
+        var db = LocalStorage.openDatabaseSync("internetRadioPlayerDB", "1.0", "Internet Radio Player Local DB", 1000000);
+        db.transaction(
+            function(tx){
+                var station = tx.executeSql('SELECT * FROM Stations WHERE id=(SELECT MAX(id) FROM Stations)');
+                stationData = station2Data(station.rows.item(0))
+            }
+        );
+        return stationData;
     }
 
     function station2Data(station)

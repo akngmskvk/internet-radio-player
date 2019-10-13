@@ -6,5 +6,10 @@
         <file>components/ItemButton.qml</file>
         <file>NewStationDrawer.qml</file>
         <file>DBM.qml</file>
+        <file>StationsList.qml</file>
+        <file>resources/pause-icon.png</file>
+        <file>resources/play-icon.png</file>
+        <file>RadioPlayer.qml</file>
+        <file>resources/new-station.png</file>
     </qresource>
 </RCC>
