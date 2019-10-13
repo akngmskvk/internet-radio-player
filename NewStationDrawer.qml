@@ -48,7 +48,7 @@ Drawer {
         id: newStationImg
         width: 220
         height: 220
-        source: resourcePath + "new-station.png"
+        source: resourcePath + ((isEdit) ? "edit-station.png" : "new-station.png")
         anchors.horizontalCenter: textColumn.horizontalCenter
         y: 100
     }
