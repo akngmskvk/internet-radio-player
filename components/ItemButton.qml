@@ -5,6 +5,7 @@ Item {
 
     property string text: ""
     property int textSize: 20
+    property int letterSpacing: 2
     property string passiveTextColor: "#ebebeb"
     property string activeTextColor: "#39c7e3"
     property string passiveBackgroundColor: "#212121"
@@ -37,7 +38,7 @@ Item {
         verticalAlignment: Text.AlignVCenter
         color: itemButton.isReleased ? passiveTextColor : activeTextColor
         font.pixelSize: itemButton.textSize
-        font.letterSpacing: 2
+        font.letterSpacing: itemButton.letterSpacing
 
         MouseArea {
             id: itemButtonMouseArea

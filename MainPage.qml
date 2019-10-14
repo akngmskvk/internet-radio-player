@@ -38,11 +38,13 @@ Page {
     ItemButton {
         id: addStationBtn
         visible: (!newStationDrawer.opened)
-        text: "New Station"
+        text: "Add\nNew\nStation\n⬅"
+        textSize: 30
+        letterSpacing: 5
         width: 180
-        height: 50
+        height: 350
         anchors.top: parent.top
-        anchors.topMargin: 250
+        anchors.topMargin: 350
         anchors.right: parent.right
         anchors.rightMargin: 20
         onClicked: {

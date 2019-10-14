@@ -6,13 +6,43 @@ import "components"
 
 Item {
     id: stationsList
-    width: parent.width * 0.72
+    width: 1650
     height: 700
+    transformOrigin: Item.Left
+
+    property int itemCount: 6
+    property int itemSpacing: 30
+    property int itemWidth: (stationsList.width - (itemCount * itemSpacing)) / 6 //250
+    property int itemHeight: stationsList.height * 0.68 // ~470
+
+    function minimize()
+    {
+        minimizeAction.start()
+    }
+    function maximize()
+    {
+        maximizeAction.start()
+    }
+
+    PropertyAnimation {
+        id: minimizeAction
+        target: stationsList
+        properties: "scale"
+        to: 0.79
+        duration: 250
+    }
+    PropertyAnimation {
+        id: maximizeAction
+        target: stationsList
+        properties: "scale"
+        to: 1
+        duration: 250
+    }
 
     ListView {
         id: stationsListView
         width: parent.width
-        height: 700
+        height: parent.height
         currentIndex: -1
         boundsBehavior: Flickable.StopAtBounds
         clip: true
@@ -26,10 +56,10 @@ Item {
             property bool isSelected: ListView.isCurrentItem
             property bool isPressAndHold: false
             height: stationsListView.height
-            width: (stationItem.isSelected) ? 280 : 250
+            width: (stationItem.isSelected) ? (itemWidth + itemSpacing) : (itemWidth)
             background: Rectangle {
-                height: (stationItem.isSelected) ? 500 : 470
-                width: (stationItem.isSelected) ? 280 : 250
+                height: (stationItem.isSelected) ? (itemHeight + itemSpacing) : (itemHeight)
+                width: (stationItem.isSelected) ? (itemWidth + itemSpacing) : (itemWidth)
                 color: "#000000"
                 radius: 10
                 opacity: (stationItem.isSelected) ? 0.8 : 0.5
@@ -55,11 +85,11 @@ Item {
 
             Image {
                 id: playPauseIcon
-                width: 200
-                height: 200
+                width: itemWidth * 0.8
+                height: itemWidth * 0.8
                 opacity: 0.3
                 anchors.top: parent.top
-                anchors.topMargin: 120
+                anchors.topMargin: itemWidth / 2
                 anchors.horizontalCenter: parent.horizontalCenter
                 source: resourcePath + ((stationItem.isSelected && radioPlayer.playbackState === Audio.PlayingState) ?
                                             "pause-icon.png" :
@@ -68,8 +98,8 @@ Item {
             Text {
                 id: stationText
                 text: model.name
-                width: 200
-                height: 100
+                width: itemWidth * 0.8
+                height: itemWidth * 0.4
                 wrapMode: Text.WordWrap
                 elide: Text.ElideRight
                 horizontalAlignment: Text.AlignHCenter

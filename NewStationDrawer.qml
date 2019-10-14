@@ -9,13 +9,19 @@ Drawer {
     height: mainPage.height
     edge: Qt.RightEdge
     interactive: false
-    dim: false
+//    dim: false
     background: Rectangle {
         anchors.fill: parent
         color: "#000000"
         opacity: 0.5
     }
     scale: mainPage.scale
+    onAboutToShow: {
+        stationsList.minimize()
+    }
+    onAboutToHide: {
+        stationsList.maximize()
+    }
     onClosed: {
         mainPage.focus = true
     }
