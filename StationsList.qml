@@ -9,65 +9,6 @@ Item {
     width: parent.width * 0.72
     height: 700
 
-    ListModel {
-        id: trialStations
-        ListElement{
-            idi: 1
-            name: "NTV Radio"
-            url: "ntv.com"
-            image: -1
-        }
-        ListElement{
-            idi: 1
-            name: "NTV Radio"
-            url: "ntv.com"
-            image: -1
-        }
-        ListElement{
-            idi: 1
-            name: "NTV Radio"
-            url: "ntv.com"
-            image: -1
-        }
-        ListElement{
-            idi: 1
-            name: "NTV Radio"
-            url: "ntv.com"
-            image: -1
-        }
-        ListElement{
-            idi: 1
-            name: "NTV Radio"
-            url: "ntv.com"
-            image: -1
-        }
-        ListElement{
-            idi: 1
-            name: "NTV Radio"
-            url: "ntv.com"
-            image: -1
-        }
-        ListElement{
-            idi: 1
-            name: "NTV Radio"
-            url: "ntv.com"
-            image: -1
-        }
-        ListElement{
-            idi: 1
-            name: "NTV Radio"
-            url: "ntv.com"
-            image: -1
-        }
-        ListElement{
-            idi: 1
-            name: "NTV Radio"
-            url: "ntv.com"
-            image: -1
-        }
-    }
-
-
     ListView {
         id: stationsListView
         width: parent.width
@@ -177,6 +118,16 @@ Item {
                     textSize: 25
                     text: "Remove"
                     onClicked: {
+                        if ((radioPlayer.playbackState === Audio.PlayingState) &&
+                                radioPlayer.stationData.name === model.name)
+                        {
+                            radioPlayer.stop()
+                        }
+
+                        if (stationsListView.currentIndex == index)
+                        {
+                            stationsListView.currentIndex = -1
+                        }
                         dbm.removeStation(dbm.getStationFromLM(index))
                         stationItem.isPressAndHold = false
                     }
