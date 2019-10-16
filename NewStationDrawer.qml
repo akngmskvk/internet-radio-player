@@ -154,6 +154,10 @@ Drawer {
             clearTextFields()
             newStationDrawer.close()
             isEdit = false
+            if(stationsList.stationsListView.playingIndex === station.index)
+            {
+                radioPlayer.stop()
+            }
         }
     }
     function copyTextFieldsToStationObject()

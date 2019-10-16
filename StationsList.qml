@@ -15,6 +15,9 @@ Item {
     property int itemWidth: (stationsList.width - (itemCount * itemSpacing)) / 6 //250
     property int itemHeight: stationsList.height * 0.68 // ~470
 
+    // Global constructs
+    property var stationsListView: stationsListView
+
     function minimize()
     {
         minimizeAction.start()
