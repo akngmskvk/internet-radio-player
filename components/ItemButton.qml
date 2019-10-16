@@ -43,17 +43,6 @@ Item {
         MouseArea {
             id: itemButtonMouseArea
             anchors.fill: parent
-    //        hoverEnabled: true
-    //        onHoveredChanged: {
-    //            if(containsMouse) {
-    //                imgButtonBorder.visible = true
-    //                isHover = true
-    //            }
-    //            else {
-    //                imgButtonBorder.visible = false
-    //                isHover = false
-    //            }
-    //        }
             onClicked: {
                 itemButton.clicked();
             }

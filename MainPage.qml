@@ -31,7 +31,6 @@ Page {
     StationsList {
         id: stationsList
         x: 30
-//        anchors.verticalCenter: parent.verticalCenter
         y: 300
     }
 
